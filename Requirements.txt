@@ -1,0 +1,13 @@
+Create a virtual environment using python3.5/3.6
+then "pip install <package-name>" will automatically install the correct versions of the following packages
+
+python3.5/python3.6
+keras
+tensorflow
+pandas
+opencv-python
+requests
+flask
+
+
+

@@ -1,0 +1,51 @@
+The directory 'code' contains-
+
+'data' directory
+ -->stores the fer2013 dataset in the form of a csv file
+
+'uploads' directory
+ -->If the the code in web.py receives an image in the form of an api request then
+ before processing, the image will be temporarily stored in uploads folder and after returning the json
+ response the image is deleted
+
+'Accessory_modules.py'
+ -->contains two accessory functions 'apply_offsets' and 'preprocess_input'
+
+'cnn.py'
+ -->cnn model
+
+'datasets.py'
+ -->contains code which was used for reading fer2013.csv and converting into suitable numpy-darray
+ form and feeding to the learning model
+
+'image_emotion_color_demo'
+ -->contains function which takes path of an image as input and returns json reponse of emotions
+ detected
+
+'test_api'
+ -->Example of python code which can used to access this api, to send an image and receive json
+  response back
+
+'train_classifier'
+ -->training of cnn-model on fer-2013 dataset
+
+'web.py'
+ -->'Flask' code to create a web-form where clients can upload images and see json response
+  on their browsers. Code also accepts requests sent otherwise with byte-encoded images.
+  This web.py is the file to be executed on the server on which this api is supposed to be
+  deployed
+----------------------------------------------------------------------------------------------------
+The directory 'trained_models' contains-
+
+-->The .hdf5 files that were obtained from training cnn model with different parameters
+-->The standard haarcascade_frontalface_default.xml provided by opencv needed for face_detection
+----------------------------------------------------------------------------------------------------
+
+The whole folder 'face_emotion_classifier' should be uploaded to a server and the file web.py
+should be executed. Then the api will be running on 8080 port of the server.
+For testing either the web-form interface can be used accessible through http://server-addr:8080
+or example script like test_api.py can be used to access this api from another machine and get an image
+processed.
+
+Trying to Run api on default port 80 can cause problems like "Address already in use" if a service on that
+server is already using it.
